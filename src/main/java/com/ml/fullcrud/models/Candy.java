@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -52,11 +55,34 @@ public class Candy {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
+    //Creating the many to one relationship with Owner class
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="owner_id")
+    private Owner owner;
+    
 //CONSTRUCTORS=========================================================================================================
     
     public Candy() {
 		super();
+		
+			
+		
 	}
+	public Candy(
+			@NotNull @Size(min = 3, max = 30, message = "The name must be no less than 3, and not over 30!") String name,
+			@NotNull @Size(min = 3, max = 15, message = "Branding is an important pillar in the world of marketing!") String brand,
+			@NotNull @Max(value = 10, message = "Must be less than 10!") @Min(value = 0, message = "Must be higher than 0!") Integer rating,
+			@NotNull @Max(value = 10, message = "Must be less than 10!") @Min(value = 1, message = "Must be higher than 0!") Integer price,
+			Owner owner) {
+		super();
+		this.name = name;
+		this.brand = brand;
+		this.rating = rating;
+		this.price = price;
+		this.owner = owner;
+	}
+	
+	
 	public Candy(Long id, @NotNull @Size(min = 3, max = 30) String name, @NotNull @Size(min = 3, max = 15) String brand,
 			@NotNull @Min(0) Integer rating, @NotNull @Min(1) Integer price, Date createdAt, Date updatedAt) {
 		super();
@@ -114,6 +140,14 @@ public class Candy {
 		this.updatedAt = updatedAt;
 	}
 	
+	
+	
+	public Owner getOwner() {
+		return owner;
+	}
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
 	//==============================================================
 	 @PrePersist
 	    protected void onCreate(){

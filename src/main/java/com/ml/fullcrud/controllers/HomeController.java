@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ml.fullcrud.models.Candy;
+import com.ml.fullcrud.models.Owner;
 import com.ml.fullcrud.services.CandyService;
+import com.ml.fullcrud.services.OwnerService;
 
 //no longer want RestController for RawData
 
@@ -23,13 +25,17 @@ import com.ml.fullcrud.services.CandyService;
 @Controller
 public class HomeController {
 	
+	//injecting Services to Controller
 	private final CandyService candyServ;
-	public HomeController(CandyService candyServ) {
+	private final OwnerService ownerServ;
+	
+	public HomeController(CandyService candyServ, OwnerService ownerServ) {
 		super();
 		this.candyServ = candyServ;
+		this.ownerServ= ownerServ;
 	}
 	
-	
+		
     
 	//ROUTE to show all candies
 	//Needs: Model model, 
@@ -47,22 +53,35 @@ public class HomeController {
 	
 	
 	//RENDER the new candy Form==========================================================
-	//boilder plate to check if thing is working before moving on
 	@GetMapping("/newCandy")
 	public String newCandyForm(
-			@ModelAttribute("candy") Candy candy) {
+			@ModelAttribute("candy") Candy candy,
+			Model model) {
+		
+		model.addAttribute("allOwners", ownerServ.allOwners());
 		return "newCandy.jsp";
 	}
 	
-	
+	//Route to Render Owner form=======================================================
+	@GetMapping("/newOwner")
+	public String newOwnerForm(
+			@ModelAttribute("owner") Owner owner) {
+		return "newOwner.jsp";
+	}
 	
 	
 	//PROCESS the POST to create Candy===================================================
 	@PostMapping("/processCandy")
 	public String postingCandy(
-			@Valid @ModelAttribute("candy") Candy candy, BindingResult result) {
+			@Valid @ModelAttribute("candy") Candy candy, 
+			BindingResult result,
+			Model model) {
 		if (result.hasErrors()) {
+			model.addAttribute("allOwners",ownerServ.allOwners()); 
+			//Without having Model model, all owners on the select option will be disappear after submit
+			
 			return "newCandy.jsp";
+			
 		}else {
 			candyServ.createCandy(candy);
 			return "redirect:/dashboard";
@@ -70,10 +89,22 @@ public class HomeController {
 		
 		
 	}
+	//PROCESS the POST to create Owner===================================================
+		@PostMapping("/processOwner")
+		public String postingOwner(
+				@Valid @ModelAttribute("owner") Owner owner, BindingResult result) {
+			if (result.hasErrors()) {
+				return "newOwner.jsp";
+			}else {
+				ownerServ.createOwner(owner);
+				return "redirect:/dashboard";
+			}
+			
+			
+		}
 	
 	
 	//ROUTE to show one Candy
-	//boilder plate to check if thing is working before moving on
 	@GetMapping("/oneCandy/{id}")
 	public String oneCandy(Model model,
 			@PathVariable(value="id") Long id) {
@@ -83,7 +114,6 @@ public class HomeController {
 	}
 	
 	//Route to Delete a Candy
-	//boilder plate to check if thing is working before moving on
 	@GetMapping("/delete/{id}")
 	public String delete(
 			@PathVariable(value="id") Long id) {

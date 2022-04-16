@@ -26,37 +26,51 @@
 </head>
 <body>
     <div class="container"> <!-- Beginning of Container -->
-    	<h1>What Candy Will You Bring to the Carnivale?</h1>
+    	<h1>Create Your Favorite Candies!</h1>
     	<br>
-    		<a href ="/dashboard">Dashboard</a>
-    	<a href ="/newCandy">New Candy</a>
-    	<a href ="/oneCandy">One Candy</a>
-    	<a href ="/updateCandy">Update Candy</a>
+    		  	<a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> <br>
+    		  	<br>
+    	
+    	
+    
     	  
-<h1>New Candy</h1>
 
-//tied this form to our model class
+<!-- //tied this form to our model class -->
 <form:form action="/processCandy" method="post" modelAttribute="candy">
     <p>
-        <form:label path="name">Name</form:label>
+        <form:label path="name">Name:</form:label>
         <form:errors class="alert-danger" path="name"/>
         <form:input path="name"/>
     </p>
     <p>
-        <form:label path="brand">Brand</form:label>
+        <form:label path="brand">Brand:</form:label>
         <form:errors class="alert-danger" path="brand"/>
-        <form:textarea path="brand"/>
+        <form:input path="brand"/>
     </p>
     <p>
-        <form:label path="price">Price</form:label>
+        <form:label path="price">Price:</form:label>
         <form:errors class="alert-danger" path="price"/>
         <form:input type="number" path="price"/>
     </p>
     <p>
-        <form:label path="rating">Rating</form:label>
+        <form:label path="rating">Rating:</form:label>
         <form:errors class="alert-danger" path="rating"/>     
         <form:input type="number" path="rating"/>
     </p>    
+    	
+    	<%-- ${allOwners}  --%>
+    	
+<!--     	//WRONG -because each path needs to match the attribute in the class -->
+   <%--  <form:select path="owner_id"> --%> 
+      <form:select path="owner">
+    	<c:forEach var="i" items="${allOwners}">
+    		
+			<form:option value="${i.id }">${i.firstname} ${i.lastname }</form:option> 
+    	</c:forEach>
+    	
+    </form:select>
+    	
+
     <input type="submit" value="Submit"/>
 </form:form>    
 

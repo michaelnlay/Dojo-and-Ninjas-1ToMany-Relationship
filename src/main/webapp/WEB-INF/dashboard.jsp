@@ -29,10 +29,11 @@
     
     	<h1 class="text-center">Welcome to the Candy Carnivale</h1>
     	<br>
-    	<a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a>
-    	<a class="btn btn-outline-primary" href ="/newCandy">New Candy</a>
-    	<a class="btn btn-outline-primary" href ="/oneCandy">One Candy</a>
-    	<a class="btn btn-outline-primary" href ="/updateCandy">Update Candy</a><br>
+    	<!-- <a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> -->
+    	<a class="btn btn-outline-primary" href ="/newCandy">Create Candy</a>
+ 
+    	<a class="btn btn-outline-primary" href ="/newOwner">Create Owner</a><br>
+    	<!-- <a class="btn btn-outline-primary" href ="/updateCandy">Update Candy</a><br> -->
     	<br>
 
     	
@@ -43,6 +44,7 @@
     			<th class"align-middle">Brand</th>
     			<th class"align-middle">Price</th>
     			<th class"align-middle">Rating</th>
+    			<th class"align-middle">Owner</th>
     			<th class"align-middle">Action</th>
     		</tr>
     	</thead>
@@ -59,6 +61,8 @@
     				<td> <c:out value="${i.brand}"></c:out> </td>
     				<td> <c:out value="${i.price}"></c:out> </td>
     				<td> <c:out value="${i.rating}"></c:out></td>
+    				<td> <c:out value="${i.owner.firstname} ${i.owner.lastname}"></c:out></td>
+    				
     				
     				<td>
     				<a class="btn btn-primary" href="/updateCandy/${i.id}"> Update Candy</a>

@@ -1,9 +1,12 @@
 # Dojo-and-Ninjas-1ToMany-Relationship
 
-https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/dojo1.JPG
+![alt text](https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/dojo1.JPG?raw=true)
+![alt text](https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/dojo2.JPG?raw=true)
+![alt text](https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/spring.JPG?raw=true)
+![alt text](https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/sql.JPG?raw=true)
 
-https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/dojo2.JPG
 
-https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/spring.JPG
 
-https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/sql.JPG
+
+
+

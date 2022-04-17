@@ -4,6 +4,6 @@ https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/
 
 https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/dojo2.JPG
 
-https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/dojo3.JPG
-
 https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/spring.JPG
+
+https://github.com/michaelnlay/Dojo-and-Ninjas-1ToMany-Relationship/blob/master/sql.JPG

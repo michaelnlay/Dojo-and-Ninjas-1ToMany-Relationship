@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="container"> <!-- Beginning of Container -->
-    	<h1>Create Your Favorite Candies!</h1>
+    	<h1>Create Ninja!</h1>
     	<br>
     		  	<a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> <br>
     		  	<br>
@@ -35,43 +35,38 @@
     
     	  
 
-<!-- //tied this form to our model class -->
-<form:form action="/processCandy" method="post" modelAttribute="candy">
-    <p>
-        <form:label path="name">Name:</form:label>
-        <form:errors class="alert-danger" path="name"/>
-        <form:input path="name"/>
-    </p>
-    <p>
-        <form:label path="brand">Brand:</form:label>
-        <form:errors class="alert-danger" path="brand"/>
-        <form:input path="brand"/>
-    </p>
-    <p>
-        <form:label path="price">Price:</form:label>
-        <form:errors class="alert-danger" path="price"/>
-        <form:input type="number" path="price"/>
-    </p>
-    <p>
-        <form:label path="rating">Rating:</form:label>
-        <form:errors class="alert-danger" path="rating"/>     
-        <form:input type="number" path="rating"/>
-    </p>    
-    	
-    	<%-- ${allOwners}  --%>
-    	
-<!--     	//WRONG -because each path needs to match the attribute in the class -->
-   <%--  <form:select path="owner_id"> --%> 
-      <form:select path="owner">
-    	<c:forEach var="i" items="${allOwners}">
+<form:form action="/processNinja" method="post" modelAttribute="ninja">
+
+		<form:label path="dojo">Location:</form:label>
+     	 <form:select path="dojo">
+    	<c:forEach var="i" items="${allDojos}">
     		
-			<form:option value="${i.id }">${i.firstname} ${i.lastname }</form:option> 
+			<form:option value="${i.id }">${i.name}</form:option> 
     	</c:forEach>
     	
     </form:select>
+    
+    <p>
+        <form:label path="firstname">First Name:</form:label>
+        <form:errors class="alert-danger" path="firstname"/>
+        <form:input path="firstname"/>
+    </p>
+     <p>
+        <form:label path="lastname">Last Name:</form:label>
+        <form:errors class="alert-danger" path="lastname"/>
+        <form:input path="lastname"/>
+    </p>
+    <p>
+        <form:label path="age">Age:</form:label>
+        <form:errors class="alert-danger" path="age"/>
+        <form:input type="number" path="age"/>
+    </p>
+     
     	
 
-    <input type="submit" value="Submit"/>
+    	
+
+    <input type="submit" value="Create"/>
 </form:form>    
 
     	

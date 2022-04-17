@@ -26,17 +26,25 @@
 </head>
 <body>
     <div class="container"> <!-- Beginning of Container -->
-    	<h1>Check out this Carnivale Candy!</h1>
-    	<br>
-    		<a href ="/dashboard">Dashboard</a>
-    	<a href ="/newCandy">New Candy</a>
-    	<a href ="/oneCandy">One Candy</a>
-    	<a href ="/updateCandy">Update Candy</a>
+    	<h1>Dojo Ninjas!</h1>
+    <br>
+    		<a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> <br>
+<br>
+  
     	
-    	${candy.name }
-    	${candy.brand }
-    	${candy.price }
-    	${candy.rating }
+    	
+    	<h4>First Name:
+    	${ninja.firstname }
+    	</h4>
+    	
+    	<h4>Last Name:
+    ${ninja.lastname }
+    	</h4>
+    	
+    	<h4>Age:
+    	${ninja.age}
+    	</h4>
+    
 
     	
     </div> <!-- End of Container -->

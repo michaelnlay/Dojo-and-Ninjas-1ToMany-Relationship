@@ -26,38 +26,33 @@
 </head>
 <body>
     <div class="container"> <!-- Beginning of Container -->
-    	<h1>What Changes would you like to make to this Candy?</h1>
+    	<h1>Change Ninja</h1>
     	<br>
     		<a href ="/dashboard">Dashboard</a>
-    	<a href ="/newCandy">New Candy</a>
-    	<a href ="/oneCandy">One Candy</a>
-    	<a href ="/updateCandy">Update Candy</a>
-    	
-    	<h4>MAKE CHANGE TO ${candy.name} in the Form: Form Below! }</h4>
-    	
-<form:form action="/updatingCandy/${candy.id}" method="post" modelAttribute="candy">
+    		
+<h4>MAKE CHANGE TO ${ninja.firstname} in the Form: Form Below! }</h4> 
+    		
+<form:form action="/updatingNinja/${ninja.id}" method="post" modelAttribute="ninja">
 <input type="hidden" name="_method" value="put"/>
     <p>
-        <form:label path="name">Name</form:label>
-        <form:errors class="alert-danger" path="name"/>
-        <form:input path="name"/>
+        <form:label path="firstname">First Name</form:label>
+        <form:errors class="alert-danger" path="firstname"/>
+        <form:input path="firstname"/>
     </p>
-    <p>
-        <form:label path="brand">Brand</form:label>
-        <form:errors class="alert-danger" path="brand"/>
-        <form:textarea path="brand"/>
+    
+      <p>
+        <form:label path="lastname">Last Name</form:label>
+        <form:errors class="alert-danger" path="lastname"/>
+        <form:input path="lastname"/>
     </p>
+   
     <p>
-        <form:label path="price">Price</form:label>
-        <form:errors class="alert-danger" path="price"/>
-        <form:input type="number" path="price"/>
+        <form:label path="age">Age</form:label>
+        <form:errors class="alert-danger" path="age"/>
+        <form:input type="number" path="age"/>
     </p>
-    <p>
-        <form:label path="rating">Rating</form:label>
-        <form:errors class="alert-danger" path="rating"/>     
-        <form:input type="number" path="rating"/>
-    </p>    
-    <input type="submit" value="Submit"/>
+   
+    <input type="submit" value="Update"/>
 </form:form>  
     	
     </div> <!-- End of Container -->

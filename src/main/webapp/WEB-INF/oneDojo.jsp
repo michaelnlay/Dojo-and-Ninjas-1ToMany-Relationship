@@ -26,30 +26,44 @@
 </head>
 <body>
     <div class="container"> <!-- Beginning of Container -->
-    	<h1>Make a Candy Owner</h1>
-    	<br>
-    	  	<a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> <br>
-    	  	<br>
+  
+    <br>
+    		<a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> <br>
+<br>
 
-<form:form action="/processOwner" method="post" modelAttribute="owner">
-    <p>
-        <form:label path="firstname">First Name</form:label>
-        <form:errors class="alert-danger" path="firstname"/>
-        <form:input path="firstname"/>
-    </p>
-    <p>
-        <form:label path="lastname">Last Name</form:label>
-        <form:errors class="alert-danger" path="lastname"/>
-        <form:input path="lastname"/>
-    </p>
-
-   
-    <input type="submit" value="Submit"/>
-</form:form>    
-
+		<h1>${dojo.name} Location Ninjas</h1> <br>
+		<br>
+    
+    	<table class ="table table-light table-striped table-hover">
+    	<thead>
+    		<tr>
+    			<th class"align-middle">First Name</th>
+    			<th class"align-middle">Last Name</th>
+    			<th class"align-middle">Age</th>
+    			
+    			
+    		</tr>
+    	</thead>
+    			<tbody>
+    			<c:forEach var="i" items="${dojo.ninjas}">
+    			<tr>
+    				<td><c:out value="${i.firstname}"></c:out> </td>
+    				<td> <c:out value="${i.lastname}"></c:out> </td>
+    				<td> <c:out value="${i.age}"></c:out> </td>
+    				
+    				
+    				
+    				
+    				
+    			</tr>
+    			</c:forEach>
+    			</tbody>
     	
     	
+    	</table>
     	
+    
+    
 
     	
     </div> <!-- End of Container -->

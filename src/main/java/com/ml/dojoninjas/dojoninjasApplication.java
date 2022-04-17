@@ -1,13 +1,13 @@
-package com.ml.fullcrud;
+package com.ml.dojoninjas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookAPIApplication {
+public class dojoninjasApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookAPIApplication.class, args);
+		SpringApplication.run(dojoninjasApplication.class, args);
 	}
 
 }

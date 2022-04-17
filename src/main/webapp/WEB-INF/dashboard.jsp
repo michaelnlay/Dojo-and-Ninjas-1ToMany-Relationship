@@ -27,45 +27,48 @@
 <body>
     <div class="container"> <!-- Beginning of Container -->
     
-    	<h1 class="text-center">Welcome to the Candy Carnivale</h1>
+    
+    	<h1> Dojo and Ninjas</h1>
     	<br>
-    	<!-- <a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> -->
-    	<a class="btn btn-outline-primary" href ="/newCandy">Create Candy</a>
+   <!--  	<!-- <a class="btn btn-outline-primary" href ="/dashboard">Dashboard</a> -->
+    	<a class="btn btn-outline-primary" href ="/newNinja">Create Ninja</a>
  
-    	<a class="btn btn-outline-primary" href ="/newOwner">Create Owner</a><br>
-    	<!-- <a class="btn btn-outline-primary" href ="/updateCandy">Update Candy</a><br> -->
+    	<a class="btn btn-outline-primary" href ="/newDojo">Create Dojo</a>
+    	<a class="btn btn-outline-primary" href ="/updateNinja">Update Ninja</a><br>
     	<br>
 
     	
-    	<table class ="table table-dark table-striped table-hover">
+    	<table class ="table table-blue table-striped table-hover">
     	<thead>
     		<tr>
-    			<th class"align-middle">Name</th>
-    			<th class"align-middle">Brand</th>
-    			<th class"align-middle">Price</th>
-    			<th class"align-middle">Rating</th>
-    			<th class"align-middle">Owner</th>
+    			<th class"align-middle">First Name</th>
+    			<th class"align-middle">Last Name</th>
+    			<th class"align-middle">Age</th>
+    			
+    			<th class"align-middle">Dojo</th>
     			<th class"align-middle">Action</th>
     		</tr>
     	</thead>
     			<tbody>
-    			<c:forEach var="i" items="${allCands}">
+    			<c:forEach var="i" items="${allNinjas}">
     			<tr>
     				<td>
-    					<a href="oneCandy/${i.id }">
-    				<c:out value="${i.name}"></c:out> 
+    					<a href="oneNinja/${i.id }">
+    				<c:out value="${i.firstname}"></c:out> 
+    				</a>
+    				</td>
+    				
+    				<td> <c:out value="${i.lastname}"></c:out> </td>
+    				<td> <c:out value="${i.age}"></c:out> </td>
+    				<td> 
+    				<a href="oneDojo/${i.dojo.id }">
+    				<c:out value="${i.dojo.name}"></c:out>
     				</a>
     				</td>
     				
     				
-    				<td> <c:out value="${i.brand}"></c:out> </td>
-    				<td> <c:out value="${i.price}"></c:out> </td>
-    				<td> <c:out value="${i.rating}"></c:out></td>
-    				<td> <c:out value="${i.owner.firstname} ${i.owner.lastname}"></c:out></td>
-    				
-    				
     				<td>
-    				<a class="btn btn-primary" href="/updateCandy/${i.id}"> Update Candy</a>
+    				<a class="btn btn-primary" href="/updateNinja/${i.id}"> Update Ninja</a>
     				<a class="btn btn-danger" href="/delete/${i.id}">Delete</a>
     			</tr>
     			</c:forEach>
